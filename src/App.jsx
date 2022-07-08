@@ -1,6 +1,7 @@
 import './App.css'
 import Header from './components/Header';
 import Form from './components/Form';
+import PetList from './components/PetList';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       
       <div className="mt-12 md:flex">
         <Form />
+        <PetList />
       </div>
 
     </div>
