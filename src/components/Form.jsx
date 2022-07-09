@@ -29,6 +29,12 @@ const Form = ({ patient, setPatient }) => {
     };
 
     setPatient([...patient, patientData]);
+
+    setName('');
+    setOwner('');
+    setEmail('');
+    setDate('');
+    setSymptom('');
   };
 
   return(
