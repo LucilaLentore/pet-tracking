@@ -5,15 +5,15 @@ import Form from './components/Form';
 import PetList from './components/PetList';
 
 function App() {
-  const [patient, setPatient] = useState([]);
+  const [patients, setPatients] = useState([]);
 
   return (
     <div className="container mx-auto mt-20">
       <Header />
       
       <div className="mt-12 md:flex">
-        <Form patient={patient} setPatient={setPatient}/>
-        <PetList />
+        <Form patients={patients} setPatients={setPatients}/>
+        <PetList patients={patients}/>
       </div>
 
     </div>
