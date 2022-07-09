@@ -1,4 +1,5 @@
 import { useState } from "react";
+import ErrorMessage from "./ErrorMessage";
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -7,14 +8,17 @@ const Form = () => {
   const [date, setDate] = useState('');
   const [symptom, setSymptom] = useState('');
 
+  const [error, setError] = useState(false)
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if ([name, owner, email, date, symptom].includes('')) {
-      console.log('Hay al menos un campo vacío');
-    } else {
-      console.log('Todos los campos llenos');
+      setError(true);
+      return;
     }
+
+    setError(false);
   };
 
   return(
@@ -26,6 +30,8 @@ const Form = () => {
         className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
         onSubmit={handleSubmit}
       >
+
+         { error && <ErrorMessage /> }
 
         <div className="mt-5">
           <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre mascota</label>
