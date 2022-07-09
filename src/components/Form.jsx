@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ErrorMessage from "./ErrorMessage";
 
-const Form = () => {
+const Form = ({ patient, setPatient }) => {
   const [name, setName] = useState('');
   const [owner, setOwner] = useState('');
   const [email, setEmail] = useState('');
@@ -19,6 +19,16 @@ const Form = () => {
     }
 
     setError(false);
+
+    const patientData = {
+      name,
+      owner,
+      email,
+      date,
+      symptom,
+    };
+
+    setPatient([...patient, patientData]);
   };
 
   return(
