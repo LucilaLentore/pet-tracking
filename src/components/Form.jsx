@@ -1,34 +1,55 @@
+import { useState } from "react";
+
 const Form = () => {
+  const [name, setName] = useState('');
+  const [owner, setOwner] = useState('');
+  const [email, setEmail] = useState('');
+  const [date, setDate] = useState('');
+  const [symptom, setSymptom] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if ([name, owner, email, date, symptom].includes('')) {
+      console.log('Hay al menos un campo vacío');
+    } else {
+      console.log('Todos los campos llenos');
+    }
+  };
+
   return(
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className="font-black text-3xl text-center">Seguimiento Pacientes</h2>
       <p className="text-lg mt-5 text-center mb-10">Añade Pacientes y {""} <span className="font-bold text-indigo-600">Adminístralos</span></p>
 
-      <form className="bg-white shadow-md rounded-lg py-10 px-5 mb-10">
+      <form 
+        className="bg-white shadow-md rounded-lg py-10 px-5 mb-10"
+        onSubmit={handleSubmit}
+      >
 
         <div className="mt-5">
           <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre mascota</label>
-          <input id="mascota" type="text" placeholder="Nombre de la mascota" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+          <input id="mascota" type="text" placeholder="Nombre de la mascota" value={name} onChange={ (e) => setName(e.target.value) } className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
         </div>
 
         <div className="mt-5">
           <label htmlFor="propietario" className="block text-gray-700 uppercase font-bold">Nombre propietario</label>
-          <input id="propietario" type="text" placeholder="Nombre del propietario" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+          <input id="propietario" type="text" placeholder="Nombre del propietario" value={owner} onChange={ (e) => setOwner(e.target.value) } className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
         </div>
 
         <div className="mt-5">
           <label htmlFor="email" className="block text-gray-700 uppercase font-bold">Email</label>
-          <input id="email" type="email" placeholder="Email propietario" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+          <input id="email" type="email" placeholder="Email propietario" value={email} onChange={ (e) => setEmail(e.target.value) } className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
         </div>
 
         <div className="mt-5">
           <label htmlFor="alta" className="block text-gray-700 uppercase font-bold">Alta</label>
-          <input id="alta" type="date" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+          <input id="alta" type="date" value={date} onChange={ (e) => setDate(e.target.value) } className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
         </div>
 
         <div className="mt-5">
           <label htmlFor="sintomas" className="block text-gray-700 uppercase font-bold">Síntomas</label>
-          <textarea id="sintomas" placeholder="Síntomas" className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
+          <textarea id="sintomas" placeholder="Síntomas" value={symptom} onChange={ (e) => setSymptom(e.target.value) } className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"/>
         </div>
 
         <input 
