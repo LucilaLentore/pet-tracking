@@ -47,7 +47,7 @@ const Form = ({ patient, setPatient }) => {
         onSubmit={handleSubmit}
       >
 
-         { error && <ErrorMessage /> }
+         { error && <ErrorMessage message='Todos los campos son obligatorios' /> }
 
         <div className="mt-5">
           <label htmlFor="mascota" className="block text-gray-700 uppercase font-bold">Nombre mascota</label>
