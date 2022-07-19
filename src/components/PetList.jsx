@@ -1,6 +1,6 @@
 import PetDetail from "./PetDetail";
 
-const PetList = ({ patients }) => {
+const PetList = ({ patients, setPatient }) => {
   return (
     <div className="md:w-1/2 lg:w-3/5 md:h-screen overflow-scroll">
       {patients && patients.length ? (
@@ -14,7 +14,7 @@ const PetList = ({ patients }) => {
           </p>
 
           {patients.map((patient) => (
-            <PetDetail key={patient.id} patient={patient} />
+            <PetDetail key={patient.id} patient={patient} setPatient={setPatient} />
           ))}
         </>
       ) : (
