@@ -7,7 +7,7 @@ const PetList = ({ patients }) => {
       <p className="text-lg mt-5 text-center mb-10">Administra tus {""} <span className="font-bold text-indigo-600">Pacientes y Citas</span></p>
 
       {
-        patients.map(patient => <PetDetail patient={patient} />)
+        patients.map(patient => <PetDetail key={patient.id} patient={patient} />)
       }
     </div>
   );
